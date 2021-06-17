@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Mail\Registration;
 use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class RegistrationTest extends TestCase
 {
@@ -14,6 +16,7 @@ class RegistrationTest extends TestCase
      */
     public function testRegisterGuest()
     {
+        Mail::fake();
         $userData = [
             'email' => 'emai@gmail.com',
             'password' => 'asdqwe123'
@@ -27,6 +30,8 @@ class RegistrationTest extends TestCase
                 ],
                 'msg'
             ]);
+
+        Mail::assertQueued(Registration::class);
     }
 
     public function testRegisterEmailTaken(){

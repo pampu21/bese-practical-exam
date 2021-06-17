@@ -14,12 +14,6 @@ class OrderTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
     public function testSuccessOrder()
     {
         $user = User::factory()->create([

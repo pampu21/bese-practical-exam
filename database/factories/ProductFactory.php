@@ -23,7 +23,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'stock' => $this->faker->randomDigit
+            'stock' => 10
         ];
     }
 }

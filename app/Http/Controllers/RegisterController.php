@@ -16,7 +16,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ]);
-        // Mail::to($data->email)->queue(new Registration($data));
+        Mail::to($data->email)->queue(new Registration($data));
 
         return response()->json(['msg' => 'User successfully registered' , 'data' => $data],201);
     }
